@@ -1175,22 +1175,22 @@ from airflow.operators.trigger_dagrun import TriggerDagRunOperator
 - mode is not available for this operator
 cleaning_xcoms = TriggerDagRunOperator(
     task_id ='trigger_cleaning_xcoms',
-    # dag you want to trigger from your current DAG
+    - dag you want to trigger from your current DAG
     trigger_dag_id = 'clean_dag',
-    # string or datetime date
-    # will be used as the execution date of the DAG that you are triggering
-    # good for backfilling
+    - string or datetime date
+    - will be used as the execution date of the DAG that you are triggering
+    - good for backfilling
     execution_date = '{{ds}}',
-    # defines if you want the triggered dag to be completed before moving to the next task
+    - defines if you want the triggered dag to be completed before moving to the next task
     wait_for_completion = True,
-    # 60 by default
-    # frequency at which you will check if your triggered dag is completed or not
+    - 60 by default
+    - frequency at which you will check if your triggered dag is completed or not
     poke_interval = 60,
-    # reset_dag_run
-    # false by default
-    # if you want to rerun
+    - reset_dag_run
+    - false by default
+    - if you want to rerun
     reset_dag_run = True
-    # by default, this is empty.
+    - by default, this is empty.
     failed_states =['failed']
 )
 ```
